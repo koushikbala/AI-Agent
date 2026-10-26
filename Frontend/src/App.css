@@ -1,0 +1,58 @@
+.app-topbar {
+  background: color-mix(in oklch, var(--background) 84%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.page-shell {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.55rem;
+  width: 0.55rem;
+  border-radius: 999px;
+  background: oklch(0.74 0.18 155);
+  box-shadow: 0 0 0 3px color-mix(in oklch, oklch(0.74 0.18 155) 14%, transparent);
+}
+
+.live-dot::after {
+  position: absolute;
+  inset: -0.2rem;
+  border: 1px solid color-mix(in oklch, oklch(0.74 0.18 155) 55%, transparent);
+  border-radius: inherit;
+  content: '';
+  animation: live-pulse 2s ease-out infinite;
+}
+
+.market-hero {
+  background:
+    linear-gradient(135deg, color-mix(in oklch, var(--card) 92%, var(--primary) 8%), var(--card)),
+    var(--card);
+}
+
+@keyframes live-pulse {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  70%, 100% { transform: scale(1.9); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
